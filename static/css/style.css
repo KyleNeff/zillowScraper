@@ -1,0 +1,59 @@
+body{
+    height: 100vh;
+}
+
+select {
+    width: 200px; 
+    font-size: 16px; 
+    padding: 5px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; 
+    cursor: pointer; 
+}
+
+.dropdown {
+    margin-left: 20px;
+    padding: 20px;
+}
+
+/* In your CSS file (style.css) */
+#resultsTable {
+    border-collapse: separate; /* Ensures the border-spacing works */
+    border-spacing: 10px; /* Space between columns */
+    width: 100%; /* Optional: Set the width of the table */
+}
+
+#resultsTable th, #resultsTable td {
+    padding: 10px; /* Space inside each cell */
+    text-align: left; /* Optional: Align text to the left */
+    background-color: #f9f9f9; /* Optional: Set background color for clarity */
+}
+
+#resultsTable th {
+    background-color: #eaeaea; /* Optional: Different background for header */
+}
+
+header{
+    margin-left: 10px;
+}
+
+.labelText{
+    font-size: 20px;
+}
+
+.locationInputText{
+    width: 200px; 
+    font-size: 14px; 
+    padding: 5px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; 
+    cursor: pointer; 
+}
+
+.searchButton{
+    font-size: 16px;
+    margin-left: 14px;
+    width: 100px;
+}

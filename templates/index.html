@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+    <title>Zillow Scraper</title>
+</head>
+<header>
+    <h1>Zillow Scraper - Kyle Neff</h1>
+</header>
+<body>
+    <form method="POST" action="/" onsubmit="this.submit();">
+        <label for="location" class="labelText">Location:</label>
+        <input type="text" id="location" name="location" placeholder="Enter location (Ex. denver-co)" required class="locationInputText">
+
+        <label for="sort" class="labelText">Sort by:</label>
+        <select name="sort" id="sort">
+            <option value="price_asc" {% if request.args.get('sort') == 'price_asc' %}selected{% endif %}>Price: Low to High</option>
+            <option value="price_desc" {% if request.args.get('sort') == 'price_desc' %}selected{% endif %}>Price: High to Low</option>
+            <option value="floorSize_asc" {% if request.args.get('sort') == 'floorSize_asc' %}selected{% endif %}>Floor Size: Low to High</option>
+            <option value="floorSize_desc" {% if request.args.get('sort') == 'floorSize_desc' %}selected{% endif %}>Floor Size: High to Low</option>
+            <option value="price_per_sqft_asc" {% if request.args.get('sort') == 'price_per_sqft_asc' %}selected{% endif %}>Price/Sq Ft: Low to High</option>
+            <option value="price_per_sqft_desc" {% if request.args.get('sort') == 'price_per_sqft_desc' %}selected{% endif %}>Price/Sq Ft: High to Low</option>
+        </select>
+        
+        <button type="submit" class="searchButton">Search</button>
+    </form>
+
+    <table id="resultsTable">
+        <thead>
+            <tr>
+                <th>Address</th>
+                <th>Floor Size</th>
+                <th>Price</th>
+                <th>Price/Sq Ft</th>
+                <th>URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if comments %}
+                {% for comment in comments %}
+                    <tr>
+                        <td>{{ comment[3] }}</td>      <!-- Address -->
+                        <td>{{ comment[4] }}</td>      <!-- Square Ft -->
+                        <td>{{ comment[6] }}</td>      <!-- Price -->
+                        <td>{{ (comment[6] / comment[4]) | round(2) }}</td> <!-- Price per Sq Ft -->
+                        <td><a href="{{ comment[5] }}" target="_blank">Link</a></td> <!-- URL -->
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5">No results found.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>
