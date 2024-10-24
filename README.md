@@ -1,5 +1,7 @@
 # zillowScraper
 
+<img width="959" alt="ZillowScraperStatic" src="https://github.com/user-attachments/assets/81ea1a1a-33ce-468b-be9e-ca1c32280038">
+
 This full-stack project scrapes property data from Zillow using BeautifulSoup and stores it in an SQL database. The scraped data includes key property details such as price, square footage, and location. The backend is written in Python, and the web scraper integrates with the frontend using Flask. Additionally, Selenium is employed to handle dynamic content loading by automating scrolling on Zillow pages.
 
 The frontend is built with HTML, allowing users to search for properties in specific locations and sort the results based on criteria like price or square footage. The scraper is designed to retrieve around 40 properties to avoid overwhelming the website and ensure smooth operation.
